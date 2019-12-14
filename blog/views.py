@@ -3,11 +3,14 @@ from django.views.generic.list import ListView
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.models import User
 
+from django.utils import timezone
+
 from .models import Blog, Post
 from .forms import *
 
 def post_list(request):
-    return render(request, 'blog/post_list.html', {})
+    posts = Post.objects.filter(pub_date__lte=timezone.now()).order_by('pub_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
 def view(request):
 
