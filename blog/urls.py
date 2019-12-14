@@ -8,7 +8,7 @@ from . import views
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
-
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
     # url(r'^$', BlogsList.as_view(), name="blog-list"),
     # url(r'^create$', BlogsCreate.as_view(), name="blog-create"),
     # url(r'^simple_view$', view, name="just-view"),
