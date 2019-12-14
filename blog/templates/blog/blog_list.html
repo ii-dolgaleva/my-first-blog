@@ -1,0 +1,19 @@
+{{counter_l|safe}}
+{% if user.is_authenticated %}
+
+    <h1>Блоги пользователя {{user.username}}</h1>
+        {% for blog in object_list %}
+        <div>
+            {{ blog }}
+            <ul>
+                <li>{{blog.title}}</li>
+                <li> {{blog.description}}: {{blog.description | length}}</li>
+                <li>{{blog.author}}</li>
+
+            </ul>
+        </div>
+    {% endfor %}
+{% else  %}
+Пожалуйста, авторизуйтесь!
+<!--{{user.is_authenticated}}-->
+{% endif %}

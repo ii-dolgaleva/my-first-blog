@@ -1,0 +1,14 @@
+
+
+{% if user.is_authenticated %}
+EXIST
+
+{% for blog in blogs_list %}
+    <div>{{ blog  }}
+         - {{blog.description}}
+    </div>
+{% endfor %}
+
+{% else %}
+not exist
+{% endif %}
