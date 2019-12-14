@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from .models import Blog, Post
 from .forms import *
 
+def post_list(request):
+    return render(request, 'blog/post_list.html', {})
 
 def view(request):
 
