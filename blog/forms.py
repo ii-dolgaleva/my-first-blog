@@ -3,6 +3,15 @@
 from django import forms
 
 
+from .models import Post
+
+class PostForm(forms.ModelForm):
+
+    class Meta:
+        model = Post
+        fields = ('title', 'text',)
+
+
 class PostsListForm(forms.Form):
     search = forms.CharField(required=False)
     sort_field = forms.ChoiceField(choices=(('author', 'Автор'), ('-pub_date', u'Дата публикации')), required=False)
