@@ -27,8 +27,11 @@ class Post(models.Model):
     is_published = models.BooleanField(default=True)
     likes = models.PositiveIntegerField(default=0)
 
-    pub_date = models.DateTimeField(auto_now_add=True, verbose_name=u"Дата публикации")
+    # pub_date = models.DateTimeField(auto_now_add=True, verbose_name=u"Дата публикации")
+    pub_date = models.DateTimeField(blank=True, null=True, verbose_name=u"Дата публикации")
+    created_date = models.DateTimeField(default=timezone.now, verbose_name=u"Дата создания")
     update_date = models.DateTimeField(auto_now=True, verbose_name=u"Дата последнего редактирования")
+
 
     def __unicode__(self):
         return self.title
